@@ -4,6 +4,9 @@ export interface TypePost {
   slug: string;
   body: string;
   updatedAt: string;
+  createdBy: {
+    name: string;
+  };
   image: {
     url: string;
   };

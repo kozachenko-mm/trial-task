@@ -3,7 +3,11 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        cursive: ["'Lobster', sans-serif"]
+        cursive: ["'Playfair Display', serif"]
+      },
+      colors: {
+        tomato: '#cc6666',
+        mainGray: '#666666'
       }
     }
   },

@@ -11,37 +11,43 @@ const Blog = ({ data }: PageProps<BlogData>) => {
   const post = data.graphCmsPost;
   return (
     <section>
-      <div className="relative img-block">
-        <img
-          src={post.image.url}
-          alt="blog picture"
-          className="object-cover h-full w-full "
-        />
-        <h2 className="absolute  top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-gray-100 text-3xl text-center font-semibold">
+      <div
+        className="pt-20 pb-40 bg-cover bg-center "
+        style={{ backgroundImage: `url(${post.image.url})` }}>
+        <p className="mx-auto uppercase text-white text-2xl px-3 py-1 mb-40 border border-white max-w-max font-semibold font-sans tracking-widest">
+          ltljrnl
+        </p>
+        <h2 className=" max-w-5xl mx-auto  text-gray-100 text-6xl text-center font-semibold font-cursive italic">
           {post.title}
         </h2>
-        <p className="text-center text-xl text-gray-600">
+      </div>
+      <div className=" relative top-44 text-gray-400 text-lg flex justify-center gap-8 ">
+        <p className=" relative before:w-2 before:h-2 before:bg-gray-400 before:absolute before:content-[''] before:rounded before:top-1/2 before:-right-4 before:translate-x-1/2 before:-translate-y-1/2">
           {new Date(post.updatedAt).toLocaleString('en-US', {
             day: '2-digit',
             month: 'long',
             year: 'numeric'
           })}
         </p>
+        <p>{post.createdBy.name}</p>
       </div>
-
       <div className="wrapper">
         <div className="cms-content">
           <ReactMarkdown>{post.body}</ReactMarkdown>
         </div>
-        <div className="border-solid border border-pink-300 flex uppercase text-center">
-          <p className="border-r  border-pink-300 grow py-3">shared:</p>
-          <a className="border-r  border-pink-300 grow py-3 hover:bg-pink-300" href="#">
+        <div className="border-solid border border-mainGray flex uppercase text-center mt-16">
+          <p className="border-r  border-mainGray grow py-3">shared:</p>
+          <a
+            className="border-r  border-mainGray grow py-3 hover:bg-tomato hover:text-white"
+            href="#">
             twitter
           </a>
-          <a className="border-r  border-pink-300 grow py-3 hover:bg-pink-300" href="#">
+          <a
+            className="border-r  border-mainGray grow py-3 hover:bg-tomato hover:text-white"
+            href="#">
             facebook
           </a>
-          <a className="grow py-3 hover:bg-pink-300" href="#">
+          <a className="grow py-3 hover:bg-tomato hover:text-white" href="#">
             google+
           </a>
         </div>
@@ -58,6 +64,9 @@ export const postQuery = graphql`
       title
       body
       updatedAt
+      createdBy {
+        name
+      }
       image {
         url
       }

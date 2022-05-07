@@ -4,7 +4,7 @@ const config: GatsbyConfig = {
   siteMetadata: {
     siteUrl: `https://www.yourdomain.tld`
   },
-  pathPrefix: '/Increasio-gatsby',
+  pathPrefix: '/kozachenko-mm',
 
   plugins: [
     {
